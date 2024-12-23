@@ -28,3 +28,6 @@ jobs:
 
       - name: Build
         run: hugo --minify
+
+      - name: Sync files from GitHub to S3
+        run: aws s3 sync public/ ${{secrets.S3_BUCKET_NAME}} --delete
